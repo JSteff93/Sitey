@@ -1,0 +1,65 @@
+* {
+    font-family: "Courier Prime", monospace;
+}
+body {
+    background-color: #ADBC9F;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+header {
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    background-color: #12372A;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+.logo {
+    display: flex
+}
+.logo1 {
+    margin: 5px 10px;
+}
+h1 {
+    font-size: 50px;
+    margin: 5px;
+    color: #FBFADA;
+}
+.container {
+    margin-top: 100px;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.navcont {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+.navdiv {
+    height: 35px;
+    font-size: 20px;
+    padding: 0 10px;
+    margin: 0 10px;
+    color: #FBFADA;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+.navs {
+    text-decoration: none;
+    color:#FBFADA;
+}
+.navs:hover {
+    color:#12372A
+}
+.navdiv:hover {
+    background-color: #ADBC9F;
+    color:#12372A;
+}
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("header.ejs") %>
+<body>
+    <div class="container">
+        <% if (locals.projects) { %>
+            <% projects.forEach(project => { %>
+                <div>
+                    <h2>
+                        <%= project.name %>
+                    </h2>
+                    <ul>
+                        <% tasks.forEach(task => { %>
+                            <% if (task.section_id === null) { %>
+                                <% if (task.project_id === project.id) { %>
+                                    <li>
+                                        <%= task.content %>
+                                    </li>
+                                <% } %>
+                            <% } %>
+                        <% }) %>
+                    </ul>
+                    <% sections.forEach(section => { %>
+                        <% if (section.project_id === project.id) { %>
+                            <h3>
+                                <%= section.name %>
+                            </h3>
+                            <ul>
+                            <% tasks.forEach(task => { %>
+                                <% if (task.section_id === section.id) { %>
+                                    <li>
+                                        <%= task.content %>
+                                    </li>
+                                <% } %>
+                            <% }) %>
+                            </ul>
+                        <% } %>
+                    <% }) %>
+                </div>
+            <% }) %>
+        <% } %>
+    </div>
+</body>
+</html>
