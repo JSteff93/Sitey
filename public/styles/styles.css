@@ -2,10 +2,10 @@
     font-family: "Courier Prime", monospace;
 }
 body {
-    background-color: #ADBC9F;
     margin: 0;
     padding: 0;
     display: inline-block;
+    width: 100%;
 }
 header {
     width: 100%;
@@ -29,6 +29,9 @@ h1 {
 }
 .container {
     margin-top: 100px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .navbar {
     display: flex;
@@ -62,4 +65,17 @@ h1 {
     background-color: #ADBC9F;
     color:#12372A;
 }
-
+h2 {
+    color: #FBFADA;
+}
+.projcont {
+    background-color: #12372A;
+    border-radius: 10px;
+    width: 100%;
+    padding: 5px 20px;
+    margin-top: 10px;
+}
+.taskcont{
+    border-radius: 7px;
+    background-color: #ADBC9F; 
+}
