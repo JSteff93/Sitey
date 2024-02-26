@@ -67,6 +67,7 @@ h1 {
 }
 h2 {
     color: #FBFADA;
+    margin: 10px 20px 10px 0;
 }
 .projcont {
     background-color: #12372A;
@@ -78,4 +79,49 @@ h2 {
 .taskcont{
     border-radius: 7px;
     background-color: #ADBC9F; 
+    padding: 5px;
+}
+.taskbar {
+    /* border: 2px black solid; */
+    margin: 5px 0;
+    padding: 2px 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #FBFADA;
+    border-radius: 10px;
+}
+.descbar {
+    width: 85%;
+    display: flex;
+    align-items: center;
+}
+p {
+    margin: 0;
+}
+h4 {
+    margin: 0;
+}
+   
+.checkboxs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70px;
+}
+.checkbox {
+    text-decoration: none;
+    color: #12372A;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30%;
+}
+.do {
+    background-color: #ADBC9F;
+}
+.kill {
+    background-color: rgb(244, 89, 89);
 }

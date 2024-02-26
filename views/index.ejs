@@ -7,35 +7,51 @@
         <% if (locals.projects) { %>
             <% projects.forEach(project => { %>
                 <div class="projcont">
-                    <h2>
+                    <h2 class="projtit">
                         <%= project.name %>
                     </h2>
                     <div class="taskcont">
-                        <ul>
                             <% tasks.forEach(task => { %>
                                 <% if (task.section_id === null) { %>
                                     <% if (task.project_id === project.id) { %>
-                                        <li>
-                                            <%= task.content %>
-                                        </li>
+                                        <div class="taskbar">
+                                            <div class="descbar">
+                                                <h4>
+                                                    <%= task.content %>
+                                                </h4>
+                                            </div>
+                                            <span class="checkboxs">
+                                                <a class="checkbox do" href="/complete"><p>✔️</p></a>
+                                                <a class="checkbox kill" href="/delete"><p>✖️</p></a> 
+                                            </span>
+                                        </div>
                                     <% } %>
                                 <% } %>
                             <% }) %>
-                        </ul>
                         <% sections.forEach(section => { %>
                             <% if (section.project_id === project.id) { %>
+                                <div class="sectioncont">
                                 <h3>
                                     <%= section.name %>
                                 </h3>
-                                <ul>
+                                <div class="taskcontsec">
                                 <% tasks.forEach(task => { %>
                                     <% if (task.section_id === section.id) { %>
-                                        <li>
-                                            <%= task.content %>
-                                        </li>
+                                        <div class="taskbar">
+                                            <div class="descbar">
+                                                <h4>
+                                                    <%= task.content %>
+                                                </h4>
+                                            </div>
+                                            <span class="checkboxs">
+                                                <a class="checkbox do" href="/complete"><p>✔️</p></a>
+                                                <a class="checkbox kill" href="/delete"><p>✖️</p></a> 
+                                            </span>
+                                        </div>
                                     <% } %>
                                 <% }) %>
-                                </ul>
+                                </div>
+                                </div>
                             <% } %>
                         <% }) %>
                     </div>
@@ -44,8 +60,14 @@
         <% } %>
     </div>
     <script>
-        $('.projcont').click(function() {
-            $(this).find('.taskcont').slideToggle();
+        $(document).ready(function(){
+            $('.taskcont').hide();
+        })
+        $('.projtit').click(function() {
+            $(this).parent().find('.taskcont').slideToggle();
+        })
+        $('.sectioncont').click(function() {
+            $(this).find('.taskcontsec').slideToggle();
         })
     </script>
 </body>
