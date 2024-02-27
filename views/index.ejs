@@ -25,6 +25,24 @@
                                                 <a class="checkbox kill" href="/delete"><p>✖️</p></a> 
                                             </span>
                                         </div>
+                                        <div class="subbar">
+                                            <% if (task.due !== null) { %>
+                                                <% if (task.due.is_recurring === true) { %>
+                                                    <span><p class="subtext">reccuring: <%= task.due.string %></p></span>
+                                                <% } else {%>
+                                                    <span><p class="subtext"> </p></span>
+                                                    <% } %>
+                                            <% } else {%>
+                                                <span><p class="subtext"> </p></span>
+                                            <% } %>
+                                            <% if (task.due !== null) { %>
+                                                <% const dd = new Date(task.due.date) %>
+                                                <span><p class="subtext">due: <%= dd.getDate() %>/<%= dd.getMonth()+1 %>/<%= dd.getFullYear() %></p></span>
+                                            <% } else {%>
+                                                <% const d = new Date(task.created_at) %>
+                                                <span><p class="subtext">created: <%= d.getDate() %>/<%= d.getMonth()+1 %>/<%= d.getFullYear() %></p></span>
+                                                <% } %>
+                                        </div>
                                     <% } %>
                                 <% } %>
                             <% }) %>
@@ -47,6 +65,24 @@
                                                 <a class="checkbox do" href="/complete"><p>✔️</p></a>
                                                 <a class="checkbox kill" href="/delete"><p>✖️</p></a> 
                                             </span>
+                                        </div>
+                                        <div class="subbar">
+                                            <% if (task.due !== null) { %>
+                                                <% if (task.due.is_recurring === true) { %>
+                                                    <span><p class="subtext">reccuring: <%= task.due.string %></p></span>
+                                                <% } else {%>
+                                                    <span><p class="subtext"> </p></span>
+                                                    <% } %>
+                                            <% } else {%>
+                                                <span><p class="subtext"> </p></span>
+                                            <% } %>
+                                            <% if (task.due !== null) { %>
+                                                <% const dd = new Date(task.due.date) %>
+                                                <span><p class="subtext">due: <%= dd.getDate() %>/<%= dd.getMonth()+1 %>/<%= dd.getFullYear() %></p></span>
+                                            <% } else {%>
+                                                <% const d = new Date(task.created_at) %>
+                                                <span><p class="subtext">created: <%= d.getDate() %>/<%= d.getMonth()+1 %>/<%= d.getFullYear() %></p></span>
+                                                <% } %>
                                         </div>
                                     <% } %>
                                 <% }) %>
