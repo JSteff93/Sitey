@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 
 const app = express();
 const port = 3000;
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 const API_URL = "https://api.todoist.com/rest/v2"
 
@@ -19,6 +20,22 @@ app.get("/", async (req, res) => {
 
     res.render("index.ejs", { projects: projects.data, sections: sections.data, tasks: tasks.data });
   });
+
+app.post("/post", async (req, res) => {
+  // console.log(req.body);
+  const pId = req.body.projId;
+  // console.log(pId);
+  const postTask = req.body.content;
+  try {
+    const tasks = await axios.post(API_URL + "/tasks", {
+      project_id: pId,
+      content: postTask
+    }, config);
+    res.redirect("/");
+} catch (error) {
+  res.render("index.ejs", "error");
+}
+})
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
