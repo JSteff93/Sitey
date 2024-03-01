@@ -54,13 +54,12 @@
                         <% sections.forEach(section => { %>
                             <% if (section.project_id === project.id) { %>
                                 <div class="sectioncont">
-                                <h3>
+                                <h3 class="secttit">
                                     <%= section.name %>
                                 </h3>
                                 <div class="taskcontsec">
                                     <% tasks.forEach(task => { %>
-                                        <% if (task.section_id === null) { %>
-                                            <% if (task.project_id === project.id) { %>
+                                            <% if (task.section_id === section.id) { %>
                                                 <div class="taskbar">
                                                     <div class="descbar">
                                                         <h4>
@@ -89,11 +88,15 @@
                                                         <% const d = new Date(task.created_at) %>
                                                         <span><p class="subtext">created: <%= d.getDate() %>/<%= d.getMonth()+1 %>/<%= d.getFullYear() %></p></span>
                                                         <% } %>
-                                                </div>
-                                            <% } %>
+                                                    </div>
                                         <% } %>
                                     <% }) %>
                                 </div>
+                                <form id="taskFormSec" method="post">
+                                    <input type="text" id="taskContentSec" name="content" placeholder="Add a task" required>
+                                    <input type="hidden" name="sectId" value="<%= section.id %>">
+                                    <input id="get" type="submit" value="Add" formaction="/postsect">
+                                  </form>
                                 </div>
                             <% } %>
                         <% }) %>
@@ -109,8 +112,8 @@
         $('.projtit').click(function() {
             $(this).parent().find('.taskcont').slideToggle();
         })
-        $('.sectioncont').click(function() {
-            $(this).find('.taskcontsec').slideToggle();
+        $('.secttit').click(function() {
+            $(this).parent().find('.taskcontsec').slideToggle();
         })
     </script>
 </body>

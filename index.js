@@ -37,6 +37,22 @@ app.post("/post", async (req, res) => {
 }
 })
 
+app.post("/postsect", async (req, res) => {
+  // console.log(req.body);
+  const sId = req.body.sectId;
+  // console.log(pId);
+  const postTask = req.body.content;
+  try {
+    const tasks = await axios.post(API_URL + "/tasks", {
+      section_id: sId,
+      content: postTask
+    }, config);
+    res.redirect("/");
+} catch (error) {
+  res.render("index.ejs", "error");
+}
+})
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
   });
