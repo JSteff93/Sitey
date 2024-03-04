@@ -20,10 +20,13 @@
                                                     <%= task.content %>
                                                 </h4>
                                             </div>
-                                            <span class="checkboxs">
-                                                <a class="checkbox do" href="/complete"><p>✔️</p></a>
-                                                <a class="checkbox kill" href="/delete"><p>✖️</p></a> 
-                                            </span>
+                                            <form id="checkForm" method="post">
+                                                <span class="checkboxs">
+                                                    <input type="hidden" name="taskId" value="<%= task.id %>">
+                                                    <input type="submit" class="checkbox do" formaction="/complete" value="✔️">
+                                                    <input type="submit" class="checkbox kill"  value="✖️" formaction="/delete"> 
+                                                </span>
+                                            </form>
                                         </div>
                                         <div class="subbar">
                                             <% if (task.due !== null) { %>
@@ -66,10 +69,15 @@
                                                             <%= task.content %>
                                                         </h4>
                                                     </div>
-                                                    <span class="checkboxs">
-                                                        <a class="checkbox do" href="/complete"><p>✔️</p></a>
-                                                        <a class="checkbox kill" href="/delete"><p>✖️</p></a> 
-                                                    </span>
+                                                   
+                                                    <form id="checkForm" method="post">
+                                                        <span class="checkboxs">
+                                                            <input type="hidden" name="taskId" value="<%= task.id %>">
+                                                            <input type="submit" class="checkbox do" formaction="/complete" value="✔️">
+                                                            <input type="submit" class="checkbox kill"  value="✖️" formaction="/delete"> 
+                                                        </span>
+                                                    </form>
+                                                    
                                                 </div>
                                                 <div class="subbar">
                                                     <% if (task.due !== null) { %>
